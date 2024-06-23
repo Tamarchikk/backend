@@ -1,0 +1,8 @@
+# Ignore AWS CDK configuration file
+cdk.json
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore npm lock file
+package-lock.json
