@@ -44,12 +44,16 @@ exports.handler = async (event) => {
 
     try {
         await dynamoDb.put(params).promise();
+        console.log('Product created:', JSON.stringify(newProduct));
+
         return {
             statusCode: 201,
             headers,
             body: JSON.stringify(newProduct),
         };
     } catch (error) {
+        console.error('Error creating product:', error);
+
         return {
             statusCode: 500,
             headers,

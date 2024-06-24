@@ -2,6 +2,7 @@ const AWS = require('aws-sdk');
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async function (event) {
+  console.log('Incoming request:', JSON.stringify(event));
   const productsTable = process.env.PRODUCTS_TABLE;
   const stocksTable = process.env.STOCKS_TABLE;
 
@@ -19,6 +20,7 @@ exports.handler = async function (event) {
         count: stock ? stock.count : 0,
       };
     });
+    console.log('Products list:', JSON.stringify(result));
 
     return {
       statusCode: 200,
@@ -28,6 +30,7 @@ exports.handler = async function (event) {
       body: JSON.stringify(result),
     };
   } catch (error) {
+    console.error('Error fetching products:', error);
     return {
       statusCode: 500,
       headers: {
