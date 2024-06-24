@@ -7,7 +7,7 @@ const PRODUCTS_TABLE_NAME = process.env.PRODUCTS_TABLE_NAME;
 exports.handler = async (event) => {
     const headers = {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT',
         'Access-Control-Allow-Headers': 'Content-Type',
     };
 
